@@ -1,0 +1,84 @@
+
+#convinience-page {
+
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 24% auto 18%;
+  grid-gap: 10px;
+
+.convinience-details {
+  img {
+    width: 200px;
+  }
+}
+
+
+// section{
+  .convinience-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    justify-content: space-evenly
+  }
+  section.submit {
+    display: flex;
+    padding: 0px 44px;
+    justify-content: flex-end;
+    button {
+      align-self: center;
+      justify-self: end;
+      color: rebeccapurple;
+      font-weight: bolder;
+      font-size: 20px;
+      background: transparent;
+      border: 0.5px solid;
+      padding: 18px 50px;
+      border-radius: 5px;
+      outline: none;
+      cursor: pointer;
+      &:hover {
+        box-shadow: 2px 2px 4px 0px #222;
+      }
+    }
+  }
+// }
+
+
+.convinience-list-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  .convinience-list-card {
+    display: flex;
+    border: 1px solid #222222;
+    margin: 2px;
+    max-width: 500px;
+    align-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 500px;
+    p {
+      width: fit-content;
+    }
+  }
+  div.fare {
+    border: 1px solid;
+    background: #662498;
+    font-family: unset;
+    font-weight: bolder;
+    color: white;
+    padding: 8px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    min-width: 150px;
+    justify-content: center;
+    font-size: x-large;
+  }
+  i.driver-icon {
+    font-size: 150px;
+  }
+}
+}
+

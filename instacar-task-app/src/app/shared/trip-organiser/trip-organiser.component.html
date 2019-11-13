@@ -1,0 +1,67 @@
+<mat-card class="example-card">
+  <form [formGroup]="_tripForm">
+    <mat-card-header>
+      <mat-card-title style="font-weight: bolder;">Trip Organizer</mat-card-title>
+      <mat-card-subtitle>Plan Your Trip.</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+
+      <!-- journeyType -->
+      <div class="trip-type-wrapper">
+        <button (click)="call('ONE_WAY')" mat-button mat-stroked-button color="primary">One Way</button>
+        <button (click)="call('ROUND_TRIP')" mat-button mat-stroked-button color="primary">Round Trip</button>
+        <button (click)="call('MULTI_CITY')" mat-button mat-stroked-button color="primary">Multy City</button>
+      </div>
+
+
+
+      <!-- goingTo -->
+      <mat-form-field class="route-wrapper">
+        <input matInput placeholder="State" aria-label="State" [matAutocomplete]="auto" formControlName="goingTo">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let state of filteredStates | async" [value]="state.name">
+            <img class="example-option-img" aria-hidden [src]="state.flag" height="25">
+            <span>{{state.name}}</span> |
+            <small>Population: {{state.population}}</small>
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <!-- departFrom -->
+      <mat-form-field class="route-wrapper">
+        <input matInput placeholder="State" aria-label="State" [matAutocomplete]="auto" formControlName="departFrom">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let state of filteredStates | async" [value]="state.name">
+            <img class="example-option-img" aria-hidden [src]="state.flag" height="25">
+            <span>{{state.name}}</span> |
+            <small>Population: {{state.population}}</small>
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <!-- departDate -->
+      <mat-form-field>
+        <input matInput [min]="todayDate" [matDatepicker]="picker1" placeholder="Depart Date"
+          formControlName="departDate">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+
+      <!-- returnDate -->
+      <mat-form-field>
+        <input matInput [min]="minDate" [matDatepicker]="picker2" placeholder="Return Date"
+          formControlName="returnDate">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+
+
+
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button type="submit" mat-button>Search</button>
+    </mat-card-actions>
+
+  </form>
+</mat-card>
