@@ -4,12 +4,14 @@ import { TripOrganiserComponent } from './trip-organiser/trip-organiser.componen
 import { MaterialModule } from './modules/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConvenienceOptionsComponent } from './convenience-options/convenience-options.component';
+import { TripSummaryComponent } from './trip-summary/trip-summary.component';
+import { PaymentComponent } from './payment/payment.component';
 
 @NgModule({
-  declarations: [TripOrganiserComponent, ConvenienceOptionsComponent],
+  declarations: [TripOrganiserComponent, ConvenienceOptionsComponent, TripSummaryComponent, PaymentComponent],
   imports: [
     CommonModule, MaterialModule, FormsModule, ReactiveFormsModule
   ],
-  exports: [MaterialModule, TripOrganiserComponent, ConvenienceOptionsComponent]
+  exports: [MaterialModule, TripOrganiserComponent, ConvenienceOptionsComponent, TripSummaryComponent, PaymentComponent]
 })
 export class SharedModule { }

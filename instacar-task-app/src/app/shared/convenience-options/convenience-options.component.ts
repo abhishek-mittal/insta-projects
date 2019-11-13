@@ -1,18 +1,9 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { Convininence } from '../models/JourneyWizard';
+import { JourneyWizardDataService } from '../services/journey-wizard-data.service';
 
-export type Langauages = 'HINDI' | 'ENGLISH' | 'KANNADA';
 
-export interface DriverDetails {
-  languages: Array<Langauages>;
-  fullName: string;
-  withUs?: string;
-}
-
-export interface Convininence {
-  cType: 'CAR';
-  cPrice: number;
-  cDriverDetails: DriverDetails
-}
 
 @Component({
   selector: 'it-convenience-options',
@@ -26,18 +17,21 @@ export class ConvenienceOptionsComponent implements OnInit {
     languages: ['HINDI', 'ENGLISH', 'KANNADA']
   }
 
-  constructor() { }
+  constructor(
+    private _sharedDataJS: JourneyWizardDataService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.initConvinience();
   }
 
   initConvinience() {
-    this.conviniences = [
-      { cType: 'CAR', cPrice: 500, cDriverDetails: {languages: ['ENGLISH', 'HINDI'], fullName: 'XYZ Singh Khan'} },
-      { cType: 'CAR', cPrice: 1500, cDriverDetails: {languages: ['ENGLISH', 'HINDI'], fullName: 'XYZ Singh Khan 1'} },
-      { cType: 'CAR', cPrice: 5000, cDriverDetails: {languages: ['ENGLISH', 'HINDI'], fullName: 'XYZ Singh Khan 2'} }
-    ]
+
+    this.conviniences = this._sharedDataJS.availableDriver.map( d => ({ cType: 'CAR', cDriverDetails: d }) ) as Convininence[];
+    if (!this.conviniences.length) {
+      this.router.navigateByUrl('/s1');
+    }
   }
 
 }

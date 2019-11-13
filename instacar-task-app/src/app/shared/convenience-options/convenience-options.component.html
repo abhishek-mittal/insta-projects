@@ -16,18 +16,18 @@
     <article>
       <div class="convinience-list-wrapper" *ngFor="let convinience of conviniences">
 
-          <div class="convinience-list-card" >
-            <i class="material-icons driver-icon">face</i>
-            <div class="driver-details">
-              <p>Vehicle: {{convinience.cType}}</p>
-              <p>Driver Name: {{convinience.cDriverDetails.fullName}}</p>
-              <p>Languages: {{(convinience.cDriverDetails.languages || ['Not Available']).join(', ')}}</p>
-            </div>
+        <div class="convinience-list-card">
+          <i class="material-icons driver-icon">face</i>
+          <div class="driver-details">
+            <p>Vehicle: {{convinience.cType}}</p>
+            <p>Driver Name: {{convinience.cDriverDetails.fullName}}</p>
+            <p>Languages: {{(convinience.cDriverDetails.language || ['Not Available']).join(', ')}}</p>
           </div>
+        </div>
 
-          <div class="fare">
-            Fare: {{convinience.cPrice}}
-          </div>
+        <div class="fare">
+          Fare: {{convinience.cDriverDetails.calculatedFare}}
+        </div>
 
       </div>
     </article>
@@ -48,6 +48,6 @@
     </article>
   </section>
   <section class="submit">
-      <button color="accent">Book</button>
+    <button color="accent">Book</button>
   </section>
 </div>
