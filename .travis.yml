@@ -24,19 +24,21 @@ stages:
 jobs: 
   include:
     - stage: deploy_api
-      script:
+      before_script:
         - cd instacar-task-api
         - echo 'in app'
         - npm install
+      script:
         - echo 'in app'
         - npm run deploy
       after_success:
         - echo 'done'
     - stage: deploy_app
-      script:
+      before_script:
         - cd instacar-task-app
         - echo 'in app'
         - npm install
+      script:
         - echo 'in app'
         - npm run build:serverless:deploy
       after_success:
