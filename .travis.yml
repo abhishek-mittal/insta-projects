@@ -6,7 +6,7 @@ cache:
 notifications:
   email: false
 before_install:
-    - .aws/credentials
+    - .aws/credentials.sh
     - pip install --user awscli
 node_js:
   - '9'
