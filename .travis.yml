@@ -6,7 +6,7 @@ cache:
 notifications:
   email: false
 before_install:
-    - .aws/credentials.sh
+    - .aws/credentials
 node_js:
   - '9'
 script:
