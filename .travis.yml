@@ -14,7 +14,7 @@ before_install:
     - aws configure set aws_secret_access_key ${AWS_SECRET_ACCESS_KEY}
     - aws configure set default.region ${AWS_DEFAULT_REGION}
 node_js:
-  - '10.9.x'
+  - '10.15.3'
   - '9'
 
 stages:
