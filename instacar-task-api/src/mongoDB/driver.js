@@ -24,7 +24,7 @@ const driverSchema = new mongoose.Schema(
             default: ['banglore', 'jaipur', 'dehradun', 'mumbai']
         },
         language: {
-            type: mongoose.Schema.Types.Array,
+            type: Array,
             default: []
         },
         driverPricePerKM: {

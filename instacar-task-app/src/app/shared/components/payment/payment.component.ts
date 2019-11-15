@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
@@ -28,13 +28,14 @@ export class PaymentComponent implements OnInit {
     private fb: FormBuilder,
     private http: HttpClient,
     private sharedDataJS: JourneyWizardDataService,
-    private router: Router
+    private router: Router,
+    private ngZone: NgZone
   ) { }
 
   ngOnInit() {
     this.transactionAmount = this.sharedDataJS.paymentAmount;
     if (!this.transactionAmount) {
-      // this.router.navigateByUrl('/s1');
+      this.router.navigateByUrl('/s1');
     }
     this.initForms();
   }
@@ -67,9 +68,14 @@ export class PaymentComponent implements OnInit {
     Frames.addEventHandler(
       Frames.Events.CARD_TOKENIZED,
       (event) => {
-        this.http.post(`${environment.apiUrl}/payment`, { card_token: event.token, amount: this.transactionAmount }).subscribe((res) => {
+        this.http.post(`${environment.apiUrl}/payment`, { card_token: event.token, amount: this.transactionAmount }).subscribe((res: any) => {
           console.log(res);
           const el = document.querySelector('.success-payment-message');
+          if(res.success) {
+            setTimeout(() => {
+              this.ngZone.run( () => this.router.navigateByUrl('/s1'));
+            }, 600);
+          }
           el.innerHTML = '<span style="color:green"><b>Payment Successful</b></span>';
         });
       }

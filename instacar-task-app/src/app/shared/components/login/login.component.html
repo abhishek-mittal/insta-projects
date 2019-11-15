@@ -6,8 +6,8 @@
       <mat-card class="form-wraper-card" >
           <form class="trip-from" [formGroup]="_loginForm" (ngSubmit)="submitRequest()">
             <mat-card-header>
-              <mat-card-title style="font-weight: bolder;">Login</mat-card-title>
-              <mat-card-subtitle>Lets login.</mat-card-subtitle>
+              <mat-card-title style="font-weight: bolder;">Let's login</mat-card-title>
+              <mat-card-subtitle style="color: red;">{{ errorMessage || '' }}</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
 

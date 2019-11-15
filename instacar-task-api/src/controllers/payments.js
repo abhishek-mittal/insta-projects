@@ -7,27 +7,29 @@ async function makePayment(req, res, next) {
         const body = {
             source: {
                 type: 'token',
-                token: card_token,
-                amount: 24.99,
-                currency: 'INR',
-                ref: 'ORD-1232'
-            }
+                token: card_token
+            },
+            amount: parseInt(req.body.amount, 10) * 100,
+            currency: 'INR',
+            reference: 'ORDER-' + Math.floor(Math.random() * 1000000) + 1
         }
         const checkoutResponse = await fetch('https://api.sandbox.checkout.com/payments', {
             method: 'post',
-            body:    JSON.stringify(body),
-            headers: { 'Content-Type': 'application/json', 'Authorization': 'sk_test_830c86ba-3e75-4179-ab6c-170a603725ff' },
+            body: JSON.stringify(body),
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'sk_test_830c86ba-3e75-4179-ab6c-170a603725ff'
+            },
         });
-        console.log(card_token, checkoutResponse);
         res.json({
             success: true,
             data: checkoutResponse
         })
     } catch (error) {
         console.log(error)
-                res.json({
-                    success: true
-                })
+        res.json({
+            success: false
+        })
     }
 
 }

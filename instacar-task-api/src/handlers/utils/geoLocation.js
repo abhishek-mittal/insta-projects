@@ -35,7 +35,7 @@ function getGeoLocation (address) {
 }
 
 function getGeoAddress (address) {
-    return fetch(`https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${address || ''}&v=3&key=${process.env.GMAP_API_KEY}&libraries=geometry`).then(r => r.json());
+    return fetch(`https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${address || ''}&region=in&v=3&key=${process.env.GMAP_API_KEY}&libraries=geometry`).then(r => r.json());
 }
 
 module.exports = {

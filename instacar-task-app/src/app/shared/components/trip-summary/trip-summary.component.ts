@@ -29,8 +29,10 @@ export class TripSummaryComponent implements OnInit {
 
     if (!(this._sharedDataJS.availableDriver.length && this._sharedDataJS.tripDetails) ) {
       // first page 1 will load if no data is available
-      return (!this._sharedDataJS.tripDetails && this.router.navigateByUrl('/s1'))
-      || (!this._sharedDataJS.selectedDriver && this.router.navigateByUrl('/s2'));
+      if (!this._sharedDataJS.selectedDriver) {
+        this.router.navigateByUrl('/s2');
+      }
+      this.router.navigateByUrl('');
     }
 
     this.journeySummary = new JourneyData(this._sharedDataJS.tripDetails, this._sharedDataJS.selectedDriver);

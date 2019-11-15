@@ -31,7 +31,7 @@
           </div>
 
           <div class="fare">
-            Fare: {{driver?.calculatedFare || '150'}} <span class="currency-pan">$</span>
+            Fare: {{driver?.calculatedFare || '150'}} <span class="currency-pan">&nbsp;₹</span>
           </div>
 
         </div>
@@ -43,7 +43,7 @@
       <div>
         <mat-form-field>
           <mat-label>Speaks:</mat-label>
-          <mat-select>
+          <mat-select [(value)]="selectedLanguage" (selectionChange)="filterDrivers()">
             <mat-option *ngFor="let lang of filters.languages" [value]="lang">
               {{lang}}
             </mat-option>

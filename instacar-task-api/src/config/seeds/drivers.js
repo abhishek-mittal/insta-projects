@@ -8,25 +8,29 @@ let driverData = [
         fullName: 'Driver 1',
         email: 'drivermails1@gmal.com',
         phone: '9872387793',
-        availableLocations: ['banglore', 'jaipur', 'dehradun', 'mumbai']
+        availableLocations: ['banglore', 'jaipur', 'dehradun', 'mumbai'],
+        language: ['hindi', 'english', 'kannada']
     },
     {
         fullName: 'Driver 2',
         email: 'drivermails2@gmal.com',
         phone: '9872387793',
-        availableLocations: ['banglore', 'jaipur', 'dehradun']
+        availableLocations: ['banglore', 'jaipur', 'dehradun'],
+        language: ['english']
     },
     {
         fullName: 'Driver 3',
         email: 'drivermails3@gmal.com',
         phone: '9872387793',
-        availableLocations: ['banglore', 'jaipur']
+        availableLocations: ['banglore', 'jaipur'],
+        language: [ 'english', 'kannada']
     },
     {
         fullName: 'Driver 4',
         email: 'drivermails4@gmal.com',
         phone: '9872387793',
-        availableLocations: ['banglore', 'jaipur', 'dehradun']
+        availableLocations: ['banglore', 'jaipur', 'dehradun'],
+        language: ['hindi']
     }
 ]
 

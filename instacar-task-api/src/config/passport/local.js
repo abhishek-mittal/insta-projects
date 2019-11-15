@@ -17,11 +17,11 @@ module.exports = () => {
 
         const user = await User.findOne({email: userEmail});
         if(!user) {
-            return done(null, false, {message: 'user not found.'});
+            return done(null, false, {message: 'USER_NOT_FOUND'});
         }
 
         if(!(user.password === password)) {
-            return done(null, false, {nessage: 'Please try with another password.'});
+            return done(null, false, {nessage: 'PASSWORD_WRONG'});
         }
 
         return done(null, user);

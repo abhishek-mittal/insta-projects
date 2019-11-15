@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
 
   _loginForm: FormGroup;
   hide = true;
+  errorMessage: string;
 
   constructor(
     private _fb: FormBuilder,
@@ -46,7 +47,10 @@ export class LoginComponent implements OnInit {
       if (state === 'USER_LOGGED_IN') {
         const lastRoute = localStorage.getItem('lastActiveRoute') || '/s3';
         this.router.navigateByUrl(lastRoute);
+      } else if (state = 'USER_NOT_FOUND') {
+        this.errorMessage = 'User not availaible';
       }
+      this.errorMessage = 'something not right.';
     });
   }
 

@@ -10,19 +10,19 @@
       <div class="summary-data-group">
         <h3 class="label">Customer Name:</h3>
         <span class="value">
-          {{ journeySummary?.userDetails.fullName || 'Abhishek Mittal'}}
+          {{ journeySummary?.userDetails?.fullName || 'Abhishek Mittal'}}
         </span>
       </div>
       <div class="summary-data-group">
         <h3 class="label">Customer Number:</h3>
         <span class="value">
-          {{ journeySummary?.userDetails.phone || 'XXXX-XXX-XXX'}}
+          {{ journeySummary?.userDetails?.phone || 'XXXX-XXX-XXX'}}
         </span>
       </div>
       <div class="summary-data-group">
         <h3 class="label">Customer Email:</h3>
         <span class="value">
-          {{ journeySummary?.userDetails.email || 'N/A' }}
+          {{ journeySummary?.userDetails?.email || 'N/A' }}
         </span>
       </div>
       <div class="summary-data-group">
@@ -83,7 +83,7 @@
       <div class="summary-data-group fare-one">
         <h3 class="label">Fare:</h3>
         <span class="value">
-          {{ journeySummary?.driverDetails?.calculatedFare || 'N/A' }}
+          {{ journeySummary?.driverDetails?.calculatedFare + ' ₹' || 'N/A' }}
         </span>
 
       </div>

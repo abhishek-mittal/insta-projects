@@ -1,5 +1,5 @@
 import { User } from './user';
-export type Langauages = 'HINDI' | 'ENGLISH' | 'KANNADA';
+export type Langauages = 'hindi' | 'englisk' | 'kannada';
 
 export interface State {
   flag: string;

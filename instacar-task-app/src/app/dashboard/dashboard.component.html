@@ -1,2 +1,17 @@
+<!-- navigation -->
 
-<router-outlet></router-outlet>
+<main>
+  <section>
+    <div id="navigation-bar">
+      <div></div>
+      <ul class="navbar-wrapper">
+        <li class="nav-links">
+          <button (click)="submitLoginLogout()" mat-stroked-button color="warn">{{ isLoggedIn ? 'Logout' : 'Login'}}</button>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section>
+    <router-outlet></router-outlet>
+  </section>
+</main>

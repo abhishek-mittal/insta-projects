@@ -10,28 +10,33 @@ import { DashboardComponent } from './dashboard.component';
 import { LoginComponent } from '../shared/components/login/login.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/app/s1', pathMatch: 'full' },
+  { path: 's1', redirectTo: '/app/s1', pathMatch: 'full' },
+  { path: 's2', redirectTo: '/app/s2', pathMatch: 'full' },
+  { path: 's3', redirectTo: '/app/s3', pathMatch: 'full' },
   {
-    path: '',
-    redirectTo: 's1',
-    component: DashboardComponent
-  },
-  {
-    path: 's1',
-    component: TripOrganiserComponent
-  },
-  {
-    path: 's2',
-    component: ConvenienceOptionsComponent
-  },
-  {
-    path: 's3',
-    component: TripSummaryComponent,
-    canActivate: []
+    path: 'app',
+    component: DashboardComponent,
+    children: [
+      {
+        path: 's1',
+        component: TripOrganiserComponent
+      },
+      {
+        path: 's2',
+        component: ConvenienceOptionsComponent
+      },
+      {
+        path: 's3',
+        component: TripSummaryComponent,
+        canActivate: [AuthGuard]
+      },
+    ]
   },
   {
     path: 'auth/payment',
     component: PaymentComponent,
-    canActivate: [PaymentGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'auth/login',
