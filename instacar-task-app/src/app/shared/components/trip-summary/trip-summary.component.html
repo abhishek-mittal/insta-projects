@@ -28,13 +28,13 @@
       <div class="summary-data-group">
         <h3 class="label">Journey Date:</h3>
         <span class="value">
-          {{ journeySummary?.journeyDetails?.departDate || 'N/A' }}
+          {{ (journeySummary?.journeyDetails?.departDate | date:'mediumDate') || 'N/A' }}
         </span>
       </div>
       <div class="summary-data-group">
         <h3 class="label">Return Date:</h3>
         <span class="value">
-          {{ journeySummary?.journeyDetails?.returnDate || 'N/A' }}
+          {{ (journeySummary?.journeyDetails?.returnDate | date:'mediumDate') || 'N/A' }}
         </span>
       </div>
       <div class="summary-data-group">
