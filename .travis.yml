@@ -9,8 +9,9 @@ node_js:
   - '9'
 script:
   - cd instacar-task-api && npm i
+  - npm run deploy && cd..
+  - cd instacar-task-app && npm i
   - npm run build:serverless:deploy && cd..
-  # - cd instacar-task-app && npm i
 after_success:
   - npm run travis-deploy-once
 branches:
