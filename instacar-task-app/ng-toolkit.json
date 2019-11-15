@@ -1,0 +1,13 @@
+{
+  "serverless": {
+    "provider": "aws",
+    "project": "instacar-task-app",
+    "skipInstall": false,
+    "directory": ".",
+    "clientProject": "instacar-task-app",
+    "serverless": {
+      "aws": {},
+      "gcloud": {}
+    }
+  }
+}

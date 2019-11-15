@@ -5,69 +5,70 @@
     </h1>
   </header>
   <section class="trip-organiser-wrapper">
-      <mat-card class="form-wraper-card" >
-          <form class="trip-from" [formGroup]="_tripForm" (ngSubmit)="submitJourneyDetails()">
-            <mat-card-header>
-              <mat-card-title style="font-weight: bolder;">Trip Organizer</mat-card-title>
-              <mat-card-subtitle>Plan Your Trip.</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-              <!-- journeyType -->
-              <div class="trip-type-wrapper">
-                <button *ngFor="let trip of ['ONE_WAY', 'ROUND_TRIP', 'MULTI_CITY']" mat-button mat-stroked-button color="primary" (click)="setTripType(trip)" [ngClass]="{'button-active': trip === selectedTrip}" >{{trip}}</button>
-              </div>
+    <mat-card class="form-wraper-card">
+      <form class="trip-from" [formGroup]="tripForm" (ngSubmit)="submitJourneyDetails()">
+        <mat-card-header>
+          <mat-card-title style="font-weight: bolder;">Trip Organizer</mat-card-title>
+          <mat-card-subtitle>Plan Your Trip.</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div style="text-align: center;color:red;padding:5px" id="roundTripWarning"></div>
+          <!-- journeyType -->
+          <div class="trip-type-wrapper">
+            <button *ngFor="let trip of ['ONE_WAY', 'ROUND_TRIP', 'MULTI_CITY']" mat-button mat-stroked-button
+              color="primary" (click)="setTripType(trip)"
+              [ngClass]="{'button-active': trip === selectedTrip}">{{trip}}</button>
+          </div>
 
-              <div class="form-group-inline">
-                <!-- goingTo -->
-                <mat-form-field class="route-wrapper">
-                  <input matInput placeholder="From" aria-label="State" [matAutocomplete]="auto" formControlName="departFrom">
-                  <mat-autocomplete #auto="matAutocomplete">
-                    <mat-option *ngFor="let place of filteredStates" [value]="place.description">
-                      <span>{{place.description}}</span> |
-                    </mat-option>
-                  </mat-autocomplete>
-                </mat-form-field>
+          <div class="form-group-inline">
+            <!-- goingTo -->
+            <mat-form-field class="route-wrapper">
+              <input matInput placeholder="From" aria-label="State" [matAutocomplete]="auto"
+                formControlName="departFrom">
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let place of filteredStates" [value]="place.description">
+                  <span>{{place.description}}</span> |
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
 
-                <!-- departFrom -->
-                <mat-form-field class="route-wrapper">
-                  <input matInput placeholder="Going To" aria-label="State" [matAutocomplete]="auto" formControlName="goingTo" (input)="getfilterStates($event.target.value)">
-                  <mat-autocomplete #auto="matAutocomplete">
-                    <mat-option *ngFor="let state of filteredStates" [value]="state.description">
-                      <span>{{state.description}}</span> |
-                    </mat-option>
-                  </mat-autocomplete>
-                </mat-form-field>
-              </div>
+            <!-- departFrom -->
+            <mat-form-field class="route-wrapper">
+              <input matInput placeholder="Going To" aria-label="State" [matAutocomplete]="auto"
+                formControlName="goingTo" (input)="getfilterStates($event.target.value)">
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let state of filteredStates" [value]="state.description">
+                  <span>{{state.description}}</span> |
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          </div>
 
-              <div class="form-group-inline">
-                <!-- departDate -->
-              <mat-form-field>
-                  <input matInput [min]="todayDate" [matDatepicker]="picker1" placeholder="Depart Date"
-                    formControlName="departDate" (dateChange)="dateChanged($event)">
-                  <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-                  <mat-datepicker #picker1></mat-datepicker>
-                </mat-form-field>
+          <div class="form-group-inline">
+            <!-- departDate -->
+            <mat-form-field>
+              <input matInput [min]="todayDate" [matDatepicker]="picker1" placeholder="Depart Date"
+                formControlName="departDate" (dateChange)="dateChanged($event)">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
 
-                <!-- returnDate -->
-                <mat-form-field *ngIf="selectedTrip !== 'ONE_WAY'">
-                  <input matInput [min]="fromDate" [matDatepicker]="picker2" placeholder="Return Date"
-                    formControlName="returnDate">
-                  <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-                  <mat-datepicker calendarLabel="" #picker2></mat-datepicker>
-                </mat-form-field>
-              </div>
+            <!-- returnDate -->
+            <mat-form-field *ngIf="selectedTrip !== 'ONE_WAY'">
+              <input matInput [min]="fromDate" [matDatepicker]="picker2" placeholder="Return Date"
+                formControlName="returnDate">
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker calendarLabel="" #picker2></mat-datepicker>
+            </mat-form-field>
+          </div>
 
-            </mat-card-content>
+        </mat-card-content>
 
-            <mat-card-actions class="form-actions">
-              <button type="submit" mat-button>Search</button>
-            </mat-card-actions>
+        <mat-card-actions class="form-actions">
+          <button type="submit" mat-button>Search</button>
+        </mat-card-actions>
 
-          </form>
-        </mat-card>
+      </form>
+    </mat-card>
   </section>
 </div>
-
-
-
-

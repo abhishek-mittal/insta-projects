@@ -1,0 +1,18 @@
+
+language: node_js
+cache:
+  directories:
+    - ~/.npm
+notifications:
+  email: false
+node_js:
+  - '9'
+script:
+  - cd instacar-task-api && npm i
+  - npm run build:serverless:deploy && cd..
+  # - cd instacar-task-app && npm i
+after_success:
+  - npm run travis-deploy-once
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/

@@ -1,7 +1,8 @@
-import { User } from './../models/user';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { tap, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
+import { User } from './../models/user';
 
 interface LoginResponse {
   code: number;
@@ -32,8 +33,8 @@ export class AuthService {
   }
 
   loginUser(credentials) {
-    return this.http.post(`http://localhost:3000/login`, credentials).pipe(map( (res: LoginResponse) => {
-      if(res.status === true) {
+    return this.http.post(`${environment.apiUrl}/login`, credentials).pipe(map((res: LoginResponse) => {
+      if (res.status === true) {
         this.setTokenToLocalStorage(res);
         return 'USER_LOGGED_IN';
       }
@@ -42,7 +43,7 @@ export class AuthService {
   }
 
   validateToken() {
-    return this.http.get('http://localhost:3000/validate');
+    return this.http.get(`${environment.apiUrl}/validate`);
   }
 
   logoutUser() {

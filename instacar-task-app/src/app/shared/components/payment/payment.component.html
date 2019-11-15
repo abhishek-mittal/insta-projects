@@ -1,12 +1,11 @@
 <form id="payment-form" method="POST" action="https://merchant.com/charge-card">
-    <div class="one-liner">
-      <div class="card-frame">
-        <!-- form will be added here -->
-      </div>
-      <!-- add submit button -->
-      <button id="pay-button" disabled>
-        PAY GBP 24.99
-      </button>
+  <div class="one-liner">
+    <div class="card-frame">
     </div>
-    <p class="success-payment-message"></p>
-  </form>
+    <!-- add submit button -->
+    <button id="pay-button" disabled>
+      PAY ₹ {{ transactionAmount }}
+    </button>
+  </div>
+  <p class="success-payment-message"></p>
+</form>

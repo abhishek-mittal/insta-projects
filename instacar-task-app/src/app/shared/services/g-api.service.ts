@@ -1,8 +1,8 @@
-import { map } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject, observable } from 'rxjs';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { HttpClient, HttpResponse, HttpHeaders } from '@angular/common/http';
 
 declare var google: any;
 
@@ -122,10 +122,10 @@ export class GAPIService {
 
     address = address.replace(/ /g, '+');
 
-    return this.http.get<any>(`http://localhost:3000/getLocations`
+    return this.http.get<any>(`${environment.apiUrl}/getLocations`
       , { params: { address } })
       .pipe(map((res: any) => {
-          return res.data;
+        return res.data;
       }));
   }
 }

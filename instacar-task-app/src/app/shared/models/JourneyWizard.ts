@@ -28,8 +28,8 @@ export interface Convininence {
 
 export enum TRIP_TYPE {
   one_way = 'ONE_WAY',
-  round_trip = 'ONE_WAY',
-  multi_city = 'ONE_WAY'
+  round_trip = 'ROUND_TRIP',
+  multi_city = 'MULTI_CITY'
 }
 
 export interface TRANSACTION {
