@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import {MatTabsModule, MatButtonModule, MatRippleModule,
   MatGridListModule, MatIconModule, MatDividerModule, MatCardModule,
-  MatFormFieldModule, MatFormFieldControl, MatInputModule, MatButtonToggleModule, MatAutocompleteModule, MatDatepickerModule, MatNativeDateModule, MatSelectModule } from '@angular/material';
+  MatFormFieldModule, MatFormFieldControl, MatInputModule, MatButtonToggleModule, MatAutocompleteModule, MatDatepickerModule, MatNativeDateModule, MatSelectModule, MatRadioModule } from '@angular/material';
 
 
 @NgModule({
@@ -16,6 +16,7 @@ import {MatTabsModule, MatButtonModule, MatRippleModule,
     MatDividerModule,
     MatCardModule,
     MatFormFieldModule,
+    MatRadioModule,
     MatInputModule, MatButtonToggleModule, MatAutocompleteModule, MatDatepickerModule, MatNativeDateModule, MatSelectModule
   ]
 })

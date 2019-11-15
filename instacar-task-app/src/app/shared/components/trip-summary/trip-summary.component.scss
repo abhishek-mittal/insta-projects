@@ -1,0 +1,76 @@
+$phone: 640px;
+$tablet: 768px;
+$desktop: 1024px;
+
+@mixin mobile {
+  @media (max-width: #{$phone}) {
+      @content;
+  }
+}
+
+#trip-summary-page {
+
+  transition-delay: 400ms;
+  transition-timing-function: ease-in-out;
+
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 24% auto 20%;
+  padding: 8px 10px;
+  grid-gap: 10px;
+
+  header {
+  }
+
+  section.trip-summary-wrapper {
+    display: flex;
+    /* justify-content: space-evenly; */
+    flex-direction: column;
+    /* align-items: center; */
+    width: fit-content;
+    /* align-self: center; */
+    justify-self: center;
+    header {
+      background-color: crimson;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 10px 10px 0px 0px;
+      border: 1px solid #22222200;
+    }
+    .trip-info-wrapper {
+      border: 1px solid #22222230;
+      padding: 2px 4px;
+      border-radius: 8px;
+      padding: 10px 50px;
+      div.summary-data-group {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 4px;
+        /* flex-wrap: wrap; */
+        white-space: nowrap;
+        transition-duration: 400ms;
+        /* transition-delay: 400ms; */
+        transition-timing-function: ease-in-out;
+        @include mobile() {
+          flex-direction: column;
+          align-items: flex-end;
+        }
+
+        &.fare-one {
+          background-color: blueviolet;
+          line-height: 2px;
+        }
+
+        span {
+          padding: 0px 5px;
+        }
+      }
+    }
+  }
+
+  section.trip-summary-action {
+    text-align: right;
+  }
+}

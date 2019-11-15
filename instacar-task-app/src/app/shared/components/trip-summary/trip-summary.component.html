@@ -1,0 +1,95 @@
+<div id="trip-summary-page">
+  <header>
+    <h1>Final Step</h1>
+  </header>
+  <section class="trip-summary-wrapper">
+    <header>
+      <h2>Trip Summary</h2>
+    </header>
+    <article class="trip-info-wrapper">
+      <div class="summary-data-group">
+        <h3 class="label">Customer Name:</h3>
+        <span class="value">
+          {{ journeySummary?.userDetails.fullName || 'Abhishek Mittal'}}
+        </span>
+      </div>
+      <div class="summary-data-group">
+        <h3 class="label">Customer Number:</h3>
+        <span class="value">
+          {{ journeySummary?.userDetails.phone || 'XXXX-XXX-XXX'}}
+        </span>
+      </div>
+      <div class="summary-data-group">
+        <h3 class="label">Customer Email:</h3>
+        <span class="value">
+          {{ journeySummary?.userDetails.email || 'N/A' }}
+        </span>
+      </div>
+      <div class="summary-data-group">
+        <h3 class="label">Journey Date:</h3>
+        <span class="value">
+          {{ journeySummary?.journeyDetails?.departDate || 'N/A' }}
+        </span>
+      </div>
+      <div class="summary-data-group">
+        <h3 class="label">Return Date:</h3>
+        <span class="value">
+          {{ journeySummary?.journeyDetails?.returnDate || 'N/A' }}
+        </span>
+      </div>
+      <div class="summary-data-group">
+        <h3 class="label">From:</h3>
+        <span class="value">
+          {{ journeySummary?.journeyDetails?.departFrom || 'N/A' }}
+        </span>
+
+      </div>
+      <div class="summary-data-group">
+        <h3 class="label">To:</h3>
+        <span class="value">
+          {{ journeySummary?.journeyDetails?.goingTo || 'N/A' }}
+        </span>
+      </div>
+
+      <!-- extra details -->
+
+      <!-- pickup time -->
+      <div class="summary-data-group">
+          <h3 class="label">Pickup Time:</h3>
+          <span class="value">
+              <mat-form-field>
+                  <mat-label>time*</mat-label>
+                  <mat-select [formControl]="pickupTime" >
+                    <mat-optgroup *ngFor="let ampm of ['AM', 'PM']" [label]="ampm">
+                      <mat-option *ngFor="let time of [].constructor(12); let i = index;" [value]="i+1+ampm">
+                        {{i+1}}:00
+                      </mat-option>
+                    </mat-optgroup>
+                  </mat-select>
+                </mat-form-field>
+          </span>
+      </div>
+
+      <!-- pickup address -->
+      <div class="summary-data-group">
+          <h3 class="label">Pickup Address:</h3>
+          <span class="value">
+              <mat-form-field class="example-full-width">
+                  <textarea matInput placeholder="Address" [formControl]="pickupAddress"></textarea>
+              </mat-form-field>
+          </span>
+      </div>
+
+      <div class="summary-data-group fare-one">
+        <h3 class="label">Fare:</h3>
+        <span class="value">
+          {{ journeySummary?.driverDetails?.calculatedFare || 'N/A' }}
+        </span>
+
+      </div>
+    </article>
+  </section>
+  <section class="trip-summary-action">
+    <button (click)="callForPayment()" mat-raised-button color="accent">Pay</button>
+  </section>
+</div>

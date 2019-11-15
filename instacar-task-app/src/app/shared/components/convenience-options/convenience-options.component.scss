@@ -1,0 +1,110 @@
+#convinience-page {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 24% auto 18%;
+  grid-gap: 10px;
+
+  .details-sect {
+
+  }
+
+  .convinience-details {
+    display: grid;
+    grid-template-columns: 24% 1% auto;
+    grid-gap: 10px;
+    img {
+      width: 200px;
+    }
+  }
+
+  // section{
+  .convinience-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    justify-content: space-evenly;
+  }
+  section.submit {
+    display: flex;
+    padding: 0px 44px;
+    justify-content: flex-end;
+    button {
+      align-self: center;
+      justify-self: end;
+      color: rebeccapurple;
+      font-weight: bolder;
+      font-size: 20px;
+      background: transparent;
+      border: 0.5px solid;
+      padding: 18px 50px;
+      border-radius: 5px;
+      outline: none;
+      cursor: pointer;
+      &:hover {
+        box-shadow: 2px 2px 4px 0px #222;
+      }
+    }
+  }
+  // }
+
+  .convenience-lists {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-rows: auto auto auto;
+  }
+
+  .convinience-list-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    .driver-select-radio {
+      position: relative;
+      left: -8%;
+      top: -16%;
+    }
+    .convinience-list-card {
+      display: flex;
+      border: 1px solid #22222233;
+      margin: 2px 0px;
+      max-width: 500px;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 500px;
+      border-radius: 10px 0px 0px 10px;
+      padding: 8px 10px;
+      justify-content: space-evenly;
+      .driver-details {
+        max-width: 60%;
+        p {
+          text-overflow: ellipsis;
+          word-break: keep-all;
+          white-space: nowrap;
+          clear: both;
+          font-size: 2.8vh;
+          overflow: hidden;
+        }
+      }
+    }
+
+    div.fare {
+      border: 1px solid #2222226b;
+      background: #249891;
+      /* font-family: unset; */
+      /* font-weight: bolder; */
+      color: white;
+      padding: 8px 10px;
+      /* text-align: center; */
+      display: flex;
+      align-items: center;
+      min-width: 150px;
+      justify-content: center;
+      font-size: x-large;
+      border-radius: 0px 10px 10px 0px;
+      margin: 2px 0px;
+    }
+    i.driver-icon {
+      font-size: 22vh;
+    }
+  }
+}

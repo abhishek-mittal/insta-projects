@@ -1,0 +1,48 @@
+div {
+  .trip-type-wrapper {
+    display: flex;
+  }
+}
+
+.button-active {
+  background-color: #673ab7;
+  color: white;
+}
+
+#trip-organiser-page {
+  display: grid;
+  padding: 8px 10px;
+  grid-gap: 10px;
+  grid-template-columns: auto;
+  grid-template-rows: 24% auto;
+  section.trip-organiser-wrapper{
+    display: flex;
+    justify-content: space-evenly;
+    .form-wraper-card {
+      max-width: 500px;
+      form.trip-from {
+
+          .trip-type-wrapper {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            button {
+              margin-right: 4px;
+            }
+          }
+
+          .form-group-inline{
+            display: flex;
+            margin: 8px 2px 0px 2px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+          }
+
+          .form-actions {
+            text-align: end;
+          }
+
+      }
+    }
+  }
+}

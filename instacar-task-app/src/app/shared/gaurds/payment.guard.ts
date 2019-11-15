@@ -7,6 +7,6 @@ export class PaymentGuard implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
 
-    return false;
+    return true;
   }
 }

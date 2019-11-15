@@ -1,0 +1,59 @@
+<div id="convinience-page">
+  <section class="details-sect">
+      <mat-card-header>
+          <mat-card-title>Select Driver</mat-card-title>
+      </mat-card-header>
+    <mat-card class="convinience-details">
+      <img src="assets/images/car-asset.png" alt="" srcset="">
+      <mat-divider [vertical]="true"></mat-divider>
+      <div class="vehicle-details">
+        <p>Car: MARUTI Suzuki</p>
+        <p>In Service: XYZ</p>
+      </div>
+    </mat-card>
+    <br>
+    <mat-divider></mat-divider>
+    <br>
+  </section>
+  <section class="convinience-list">
+    <article>
+      <mat-radio-group aria-labelledby="example-radio-group-label" class="convenience-lists"
+        [(ngModel)]="selectedDriver">
+        <div class="convinience-list-wrapper" *ngFor="let driver of availableDrivers">
+          <div class="convinience-list-card">
+            <mat-radio-button class="driver-select-radio" [value]="driver"></mat-radio-button>
+            <i class="material-icons driver-icon">face</i>
+            <div class="driver-details">
+              <p>Vehicle: {{'Car'}}</p>
+              <p>Driver Name: {{driver?.fullName || 'Abhsihek Mittal Venkatesh Muttu Swami Iyer'}}</p>
+              <p>Languages: {{(driver?.language || ['Not Available']).join(', ')}}</p>
+            </div>
+          </div>
+
+          <div class="fare">
+            Fare: {{driver?.calculatedFare || '150'}} <span class="currency-pan">$</span>
+          </div>
+
+        </div>
+      </mat-radio-group>
+    </article>
+    <!-- filter -->
+    <article class="convinience-utilities">
+      filters:
+      <div>
+        <mat-form-field>
+          <mat-label>Speaks:</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let lang of filters.languages" [value]="lang">
+              {{lang}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+    </article>
+  </section>
+  <section class="submit">
+    <button color="accent" (click)="proceedToSummary()">Book</button>
+  </section>
+</div>

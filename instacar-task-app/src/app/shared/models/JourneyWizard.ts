@@ -1,3 +1,4 @@
+import { User } from './user';
 export type Langauages = 'HINDI' | 'ENGLISH' | 'KANNADA';
 
 export interface State {
@@ -37,15 +38,37 @@ export interface TRANSACTION {
   payment: Convininence;
 }
 
-
-export class JourneyData {
-
+export interface JourneyDetails {
   goingTo: string;
   departFrom: string;
   departDate: Date;
   returnDate: Date;
   journeyType: TRIP_TYPE;
+}
+
+export interface ExtraDetails {
+  pickupTime: Date;
+  prickupAddress: string;
+}
+
+export class JourneyData {
+
+
+  userDetails: User;
+  journeyDetails: JourneyDetails;
+  driverDetails: DriverDetails;
   transaction: TRANSACTION;
+  extraDetails: ExtraDetails;
+
+  constructor(journeyDetails: JourneyDetails, driverDetails: DriverDetails) {
+    this.journeyDetails = journeyDetails;
+    this.driverDetails = driverDetails;
+    this.userDetails = JSON.parse(localStorage.getItem('profile'));
+  }
+
+  setExtraDetails(ed: ExtraDetails) {
+    this.extraDetails = ed;
+  }
 
 
 
