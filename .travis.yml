@@ -15,13 +15,26 @@ before_install:
     - aws configure set default.region ${AWS_DEFAULT_REGION}
 node_js:
   - '9'
-script:
-  - cd instacar-task-api && npm i
-  - npm run deploy && cd..
-  - cd instacar-task-app && npm i
-  - npm run build:serverless:deploy && cd..
-after_success:
-  - npm run travis-deploy-once
+
+stages:
+  - deploy_api
+  - deploy_app
+
+jobs: 
+  include:
+    - stage: deploy_api
+      script:
+        - cd instacar-task-api && npm i
+        - npm run deploy
+      after_success:
+        - npm run travis-deploy-once
+    - stage: deploy_app
+      script:
+        - cd instacar-task-app && npm i
+        - npm run build:serverless:deploy
+      after_success:
+        - npm run travis-deploy-once
+
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
