@@ -5,6 +5,8 @@ cache:
     - ~/.npm
 notifications:
   email: false
+before_install:
+    - .aws/credentials.sh
 node_js:
   - '9'
 script:
